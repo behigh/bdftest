@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import {Navbar, Container} from 'react-bootstrap'
+import {
+    Routes,
+    Route,
+    Link,
+} from 'react-router-dom'
+import List from './components/List'
+import Item from './components/Item'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (<>
+        <header className="header">
+            <Navbar bg="dark" variant="dark" expand="lg">
+                <Container>
+                    <Link to="/" className="navbar-brand">BDF Test App</Link>
+                </Container>
+            </Navbar>
+        </header>
+        <main className="main py-3">
+            <Container>
+                <Routes>
+                    <Route path="/" element={<List />} />
+                    <Route path="/:symbol" element={<Item />} />
+                </Routes>
+            </Container>
+        </main>
+        <footer className="footer">
+            <Container className="text-muted">
+                    &copy; 2022
+            </Container>
+        </footer>
+    </>)
 }
 
-export default App;
+export default App
