@@ -7,12 +7,6 @@ const receiveData = data => ({
 })
 
 const getData = params => {
-    if (config.loadFromDisk) {
-        return new Promise((resolve, reject) => {
-            import('../data.json').then(module => resolve(module.default))
-        })
-    }
-
     return new Promise((resolve, reject) => {
         const endpoint = new URL(config.apiUrl + 'stock/market/list/mostactive')
         endpoint.searchParams.append('token', config.apiToken)
