@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import List from './components/List'
 import Item from './components/Item'
+import config from './config'
 
 function App() {
     return (<>
@@ -13,6 +14,7 @@ function App() {
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container>
                     <Link to="/" className="navbar-brand">BDF Test App</Link>
+                    {config.sandbox && <div className="navbar-text">Data retrieved in sandbox mode</div>}
                 </Container>
             </Navbar>
         </header>
